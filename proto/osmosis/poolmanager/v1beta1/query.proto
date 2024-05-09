@@ -238,10 +238,13 @@ message PoolResponse {
 }
 
 //=============================== AllPools
-message AllPoolsRequest {}
+message AllPoolsRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
 message AllPoolsResponse {
   repeated google.protobuf.Any pools = 1
       [ (cosmos_proto.accepts_interface) = "PoolI" ];
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
 // =======================================================
